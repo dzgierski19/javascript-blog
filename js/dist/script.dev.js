@@ -11,7 +11,7 @@ var templates = {
 var titleClickHandler = function titleClickHandler(event) {
   event.preventDefault();
   var clickedElement = this;
-  /* [DONE] remove class 'active' from all article links  */
+  /* remove class 'active' from all article links  */
 
   var activeLinks = document.querySelectorAll('.titles a.active');
   var _iteratorNormalCompletion = true;
@@ -23,7 +23,7 @@ var titleClickHandler = function titleClickHandler(event) {
       var activeLink = _step.value;
       activeLink.classList.remove('active');
     }
-    /* [DONE] add class 'active' to the clicked link */
+    /* add class 'active' to the clicked link */
 
   } catch (err) {
     _didIteratorError = true;
@@ -41,7 +41,7 @@ var titleClickHandler = function titleClickHandler(event) {
   }
 
   clickedElement.classList.add('active');
-  /* [DONE] remove class 'active' from all articles */
+  /* remove class 'active' from all articles */
 
   var activeArticles = document.querySelectorAll('.posts article.post.active');
   var _iteratorNormalCompletion2 = true;
@@ -53,7 +53,7 @@ var titleClickHandler = function titleClickHandler(event) {
       var activeArticle = _step2.value;
       activeArticle.classList.remove('active');
     }
-    /* [DONE] get 'href' attribute from the clicked link */
+    /* get 'href' attribute from the clicked link */
 
   } catch (err) {
     _didIteratorError2 = true;
@@ -71,10 +71,10 @@ var titleClickHandler = function titleClickHandler(event) {
   }
 
   var articleSelector = clickedElement.getAttribute('href');
-  /* [DONE] find the correct article using the selector (value of 'href' attribute) */
+  /* find the correct article using the selector (value of 'href' attribute) */
 
   var targetArticle = document.querySelector(articleSelector);
-  /* [DONE] add class 'active' to the correct article */
+  /* add class 'active' to the correct article */
 
   targetArticle.classList.add('active');
 };
@@ -104,21 +104,21 @@ var generateTitleLinks = function generateTitleLinks() {
     for (var _iterator3 = articles[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
       var article = _step3.value;
 
-      /* [DONE] get the article id */
+      /* get the article id */
       var articleId = article.getAttribute('id');
-      /* [DONE] find the title element */
+      /* find the title element */
 
-      /* [DONE] get the title from the title element */
+      /* get the title from the title element */
 
       var articleTitle = article.querySelector(optTitleSelector).innerHTML;
-      /* [DONE] create HTML of the link */
+      /* create HTML of the link */
 
       var linkHTMLData = {
         id: articleId,
         title: articleTitle
       };
       var linkHTML = templates.articleLink(linkHTMLData);
-      /* [DONE] insert link into titleList */
+      /* insert link into titleList */
 
       html = html + linkHTML;
     }
@@ -189,12 +189,12 @@ var calculateTagClass = function calculateTagClass(count, params) {
 };
 
 var generateTags = function generateTags() {
-  /* [NEW] create a new variable allTags with an empty object */
+  /* create a new variable allTags with an empty object */
   var allTags = {};
-  /* [DONE] find all articles */
+  /* find all articles */
 
   var articles = document.querySelectorAll(optArticleSelector);
-  /* [DONE] START LOOP: for every article: */
+  /* START LOOP: for every article: */
 
   var _iteratorNormalCompletion5 = true;
   var _didIteratorError5 = false;
@@ -204,18 +204,18 @@ var generateTags = function generateTags() {
     for (var _iterator5 = articles[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
       var article = _step5.value;
 
-      /* [DONE] find tags wrapper */
+      /* find tags wrapper */
       var articleTagWrapper = article.querySelector(optArticleTagsSelector);
-      /* [DONE] make html variable with empty string */
+      /* make html variable with empty string */
 
       var html = '';
-      /* [DONE] get tags from data-tags attribute */
+      /* get tags from data-tags attribute */
 
       var articleTags = article.getAttribute('data-tags');
-      /* [DONE] split tags into array */
+      /* split tags into array */
 
       var articleTagsArray = articleTags.split(' ');
-      /* [DONE] START LOOP: for each tag */
+      /* START LOOP: for each tag */
 
       var _iteratorNormalCompletion6 = true;
       var _didIteratorError6 = false;
@@ -225,24 +225,24 @@ var generateTags = function generateTags() {
         for (var _iterator6 = articleTagsArray[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
           var _tag = _step6.value;
 
-          /* [DONE] generate HTML of the link */
+          /* generate HTML of the link */
           var linkHTMLData = {
             id: _tag,
             title: _tag
           };
           var linkHTML = templates.tagLink(linkHTMLData);
-          /* [DONE] add generated code to html variable */
+          /* add generated code to html variable */
 
           html = html + linkHTML;
-          /* [NEW] check if this link is NOT already in allTags */
+          /* check if this link is NOT already in allTags */
 
           if (!allTags.hasOwnProperty(_tag)) {
-            /* [NEW] add generated code to allTags array */
+            /* add generated code to allTags array */
             allTags[_tag] = 1;
           } else {
             allTags[_tag]++;
           }
-          /* [DONE] END LOOP: for each tag */
+          /* END LOOP: for each tag */
 
         }
         /* insert HTML of all the links into the tags wrapper */
@@ -263,9 +263,9 @@ var generateTags = function generateTags() {
       }
 
       articleTagWrapper.innerHTML = html;
-      /* [DONE] END LOOP: for every article: */
+      /* END LOOP: for every article: */
     }
-    /* [NEW] find list of tags in right column */
+    /* find list of tags in right column */
 
   } catch (err) {
     _didIteratorError5 = true;
@@ -283,25 +283,25 @@ var generateTags = function generateTags() {
   }
 
   var tagList = document.querySelector('.tags');
-  /* [NEW] create variable for all links HTML code*/
+  /* create variable for all links HTML code*/
 
   var tagsParams = calculateTagsParams(allTags);
   var allTagsData = {
     tags: []
   };
-  /* [NEW] START LOOP: for each tag in allTags :*/
+  /* START LOOP: for each tag in allTags :*/
 
   for (var tag in allTags) {
-    /* [NEW] generate code of link and add it to allTagsHTML*/
+    /* generate code of link and add it to allTagsHTML*/
     allTagsData.tags.push({
       tag: tag,
       count: allTags[tag],
       className: calculateTagClass(allTags[tag], tagsParams)
     });
   }
-  /* [NEW] END LOOP: for each tag in allTags */
+  /* END LOOP: for each tag in allTags */
 
-  /* [NEW] add html from allTagsHTML to tagList */
+  /* add html from allTagsHTML to tagList */
 
 
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
@@ -310,21 +310,21 @@ var generateTags = function generateTags() {
 generateTags();
 
 var tagClickHandler = function tagClickHandler(event) {
-  /* [DONE] prevent default action for this event */
+  /* prevent default action for this event */
   event.preventDefault();
-  /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
+  /* make new constant named "clickedElement" and give it the value of "this" */
 
   var clickedElement = this;
-  /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
 
   var href = clickedElement.getAttribute('href');
-  /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
+  /* make a new constant "tag" and extract tag from the "href" constant */
 
   var tag = href.replace('#tag-', '');
-  /* [DONE] find all tag links with class active */
+  /* find all tag links with class active */
 
   var tagActive = document.querySelectorAll('a.active[href^="#tag-"]');
-  /* [DONE] START LOOP: for each active tag link */
+  /* START LOOP: for each active tag link */
 
   var _iteratorNormalCompletion7 = true;
   var _didIteratorError7 = false;
@@ -334,11 +334,11 @@ var tagClickHandler = function tagClickHandler(event) {
     for (var _iterator7 = tagActive[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
       var activeTag = _step7.value;
 
-      /* [DONE] remove class active */
+      /* remove class active */
       activeTag.classList.remove('active');
-      /* [DONE] END LOOP: for each active tag link */
+      /* END LOOP: for each active tag link */
     }
-    /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
+    /* find all tag links with "href" attribute equal to the "href" constant */
 
   } catch (err) {
     _didIteratorError7 = true;
@@ -356,7 +356,7 @@ var tagClickHandler = function tagClickHandler(event) {
   }
 
   var tagLinks = document.querySelectorAll('a[href="' + href + '"]');
-  /* [DONE] START LOOP: for each found tag link */
+  /* START LOOP: for each found tag link */
 
   var _iteratorNormalCompletion8 = true;
   var _didIteratorError8 = false;
@@ -366,11 +366,11 @@ var tagClickHandler = function tagClickHandler(event) {
     for (var _iterator8 = tagLinks[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
       var tagLink = _step8.value;
 
-      /*[DONE]  add class active */
+      /* add class active */
       tagLink.classList.add('active');
-      /* [DONE] END LOOP: for each found tag link */
+      /* END LOOP: for each found tag link */
     }
-    /* [DONE] execute function "generateTitleLinks" with article selector as argument */
+    /*  execute function "generateTitleLinks" with article selector as argument */
 
   } catch (err) {
     _didIteratorError8 = true;
@@ -449,12 +449,12 @@ var calculateAuthorClass = function calculateAuthorClass(count, params) {
 };
 
 var generateAuthors = function generateAuthors() {
-  /* [NEW] create a new variable allTags with an empty object */
+  /* create a new variable allTags with an empty object */
   var allAuthors = {};
-  /* [DONE] find all articles */
+  /* find all articles */
 
   var articles = document.querySelectorAll(optArticleSelector);
-  /* [DONE] START LOOP: for every article: */
+  /* START LOOP: for every article: */
 
   var _iteratorNormalCompletion10 = true;
   var _didIteratorError10 = false;
@@ -464,28 +464,28 @@ var generateAuthors = function generateAuthors() {
     for (var _iterator10 = articles[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
       var article = _step10.value;
 
-      /* [DONE] find tags wrapper */
+      /* find tags wrapper */
       var articleAuthorWrapper = article.querySelector(optArticleAuthorSelector);
-      /* [DONE] make html variable with empty string */
+      /* make html variable with empty string */
 
       var html = '';
-      /* [DONE] get tags from data-tags attribute */
+      /* get tags from data-tags attribute */
 
       var articleAuthors = article.getAttribute('data-author');
-      /* [DONE] generate HTML of the link */
+      /* generate HTML of the link */
 
       var linkHTMLData = {
         id: articleAuthors,
         title: articleAuthors
       };
       var linkHTML = templates.authorLink(linkHTMLData);
-      /* [DONE] add generated code to html variable */
+      /* add generated code to html variable */
 
       html = html + linkHTML;
-      /* [NEW] check if this link is NOT already in allTags */
+      /* check if this link is NOT already in allTags */
 
       if (!allAuthors.hasOwnProperty(articleAuthors)) {
-        /* [NEW] add generated code to allTags array */
+        /* add generated code to allTags array */
         allAuthors[articleAuthors] = 1;
       } else {
         allAuthors[articleAuthors]++;
@@ -494,9 +494,9 @@ var generateAuthors = function generateAuthors() {
 
 
       articleAuthorWrapper.innerHTML = html;
-      /* [DONE] END LOOP: for every article: */
+      /* END LOOP: for every article: */
     }
-    /* [NEW] find list of tags in right column */
+    /* find list of tags in right column */
 
   } catch (err) {
     _didIteratorError10 = true;
@@ -514,13 +514,13 @@ var generateAuthors = function generateAuthors() {
   }
 
   var authorCloudList = document.querySelector('.authors');
-  /* [NEW] create variable for all links HTML code*/
+  /* create variable for all links HTML code*/
 
   var authorParams = calculateAuthorsParams(allAuthors);
   var allAuthorsData = {
     authors: []
   };
-  /* [NEW] generate code of link and add it to allTagsHTML*/
+  /* generate code of link and add it to allTagsHTML*/
 
   for (var allAuthor in allAuthors) {
     allAuthorsData.authors.push({
@@ -528,9 +528,9 @@ var generateAuthors = function generateAuthors() {
       count: allAuthors[allAuthor],
       className: calculateAuthorClass(allAuthors[allAuthor], authorParams)
     });
-    /* [NEW] END LOOP: for each tag in allTags */
+    /* END LOOP: for each tag in allTags */
   }
-  /* [NEW] add html from allTagsHTML to tagList */
+  /* add html from allTagsHTML to tagList */
 
 
   authorCloudList.innerHTML = templates.authorCloudLink(allAuthorsData);
@@ -539,21 +539,21 @@ var generateAuthors = function generateAuthors() {
 generateAuthors();
 
 var authorClickHandler = function authorClickHandler(event) {
-  /* [DONE] prevent default action for this event */
+  /* prevent default action for this event */
   event.preventDefault();
-  /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
+  /* make new constant named "clickedElement" and give it the value of "this" */
 
   var clickedElement = this;
-  /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
+  /* make a new constant "href" and read the attribute "href" of the clicked element */
 
   var href = clickedElement.getAttribute('href');
-  /* [DONE] make a new constant "tag" and extract tag from the "href" constant */
+  /* make a new constant "tag" and extract tag from the "href" constant */
 
   var author = href.replace('#author-', '');
-  /* [DONE] find all tag links with class active */
+  /* find all tag links with class active */
 
   var authorActive = document.querySelectorAll('a.active[href^="#author-"]');
-  /* [DONE] START LOOP: for each active tag link */
+  /* START LOOP: for each active tag link */
 
   var _iteratorNormalCompletion11 = true;
   var _didIteratorError11 = false;
@@ -563,10 +563,10 @@ var authorClickHandler = function authorClickHandler(event) {
     for (var _iterator11 = authorActive[Symbol.iterator](), _step11; !(_iteratorNormalCompletion11 = (_step11 = _iterator11.next()).done); _iteratorNormalCompletion11 = true) {
       var activeAuthor = _step11.value;
 
-      /* [DONE] remove class active */
+      /* remove class active */
       activeAuthor.classList.remove('active');
     }
-    /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
+    /* find all tag links with "href" attribute equal to the "href" constant */
 
   } catch (err) {
     _didIteratorError11 = true;
@@ -584,7 +584,7 @@ var authorClickHandler = function authorClickHandler(event) {
   }
 
   var authorLinks = document.querySelectorAll('a[href="' + href + '"]');
-  /* [DONE] START LOOP: for each found tag link */
+  /* START LOOP: for each found tag link */
 
   var _iteratorNormalCompletion12 = true;
   var _didIteratorError12 = false;
@@ -594,11 +594,11 @@ var authorClickHandler = function authorClickHandler(event) {
     for (var _iterator12 = authorLinks[Symbol.iterator](), _step12; !(_iteratorNormalCompletion12 = (_step12 = _iterator12.next()).done); _iteratorNormalCompletion12 = true) {
       var authorLink = _step12.value;
 
-      /*[DONE]  add class active */
+      /*  add class active */
       authorLink.classList.add('active');
-      /* [DONE] END LOOP: for each found tag link */
+      /* END LOOP: for each found tag link */
     }
-    /* [DONE] execute function "generateTitleLinks" with article selector as argument */
+    /* execute function "generateTitleLinks" with article selector as argument */
 
   } catch (err) {
     _didIteratorError12 = true;
