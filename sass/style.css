@@ -1,24 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Oswald:400,600|Sacramento|Source+Sans+Pro:300&subset=latin-ext");
 /* Variables */
 /* Global */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
   box-sizing: border-box;
 }
 
 body {
-  background: #090979;
-  background: linear-gradient(90deg, #090979 17%, white 33%, white 65%, #eb1313 90%);
+  background: #fff;
   font-family: "Source Sans Pro", sans-serif;
   color: #444;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
-}
-
-h1 {
-  color: #000;
 }
 
 .container {
@@ -45,12 +38,6 @@ h1 {
   margin-left: 10px;
 }
 
-@media all and (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-  }
-}
-
 .sidebar {
   flex: 1 0 0;
 }
@@ -59,8 +46,7 @@ h1 {
   flex: 2 0 0;
 }
 
-.sidebar,
-.posts {
+.sidebar, .posts {
   background: #fff;
   margin-right: 10px;
   padding: 40px;
@@ -86,12 +72,6 @@ h1 {
 
 .list .active {
   font-weight: bold;
-  color: #0543b0;
-}
-
-.list a {
-  text-decoration: none;
-  color: #000;
 }
 
 .list-horizontal li {
@@ -124,34 +104,48 @@ h1 {
   margin: 0 10px 0 0;
 }
 
-/* Tags special classes. Reference: https://www.colorhexa.com/0040ff */
-.tags li {
-  display: inline;
+.post-tags a {
+  padding: 5px;
 }
 
-.tags .active {
-  color: #eb1313;
+/* Tags */
+.tags li {
+  display: inline-block;
+  line-height: normal;
 }
 
 .tag-size-1 {
-  background-color: #ebf0ff;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
 }
 
 .tag-size-2 {
-  font-size: 18px;
-  background-color: #c4d3ff;
-  padding: 2px;
+  font-size: 20px;
+  color: red;
+  text-decoration: none;
 }
 
 .tag-size-3 {
-  font-size: 20px;
-  background-color: #9db6ff;
-  padding: 2px;
+  font-size: 24px;
+  color: pink;
+  text-decoration: none;
 }
 
 .tag-size-4 {
-  font-size: 22px;
-  background-color: #7698ff;
-  padding: 2px;
+  font-size: 28px;
+  color: purple;
+  text-decoration: none;
+}
+
+.tag-size-5 {
+  font-size: 32px;
+  color: purple;
+  text-decoration: none;
+}
+
+.authors li {
+  display: inline-block;
+  line-height: normal;
 }
 /*# sourceMappingURL=style.css.map */
