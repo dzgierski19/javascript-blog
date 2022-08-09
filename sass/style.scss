@@ -117,9 +117,13 @@ body {
   p {
     margin: 0 10px 0 0;
   }
+  a {
+    padding: 5px;
+  }
 }
 
 /* Tags */
+
 .tags li {
   display: inline-block;
   line-height: normal;
@@ -130,33 +134,30 @@ body {
   color: black;
   text-decoration: none;
 }
-
 .tag-size-2 {
   font-size: 20px;
   color: red;
   text-decoration: none;
 }
-
 .tag-size-3 {
   font-size: 24px;
   color: pink;
   text-decoration: none;
 }
-
 .tag-size-4 {
   font-size: 28px;
   color: purple;
   text-decoration: none;
 }
-
 .tag-size-5 {
   font-size: 32px;
   color: purple;
   text-decoration: none;
 }
-
 .authors li {
   display: inline-block;
   line-height: normal;
 }
+
+
 
